@@ -20,7 +20,7 @@ public class ArrayStack implements Stack {
 	
 	public void push(Object object){
 		this.size++;
-		this.objects
+		this.objects[size] = object;
 	}
 	
 	public Object peek(){

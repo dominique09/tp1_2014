@@ -13,9 +13,10 @@ public class ArrayStack implements Stack {
 	}
 	
 	public Object pop(){
+		Object object = objects[size];
 		this.size--;
 		
-		return new Object();
+		return object;
 	}
 	
 	public void push(Object object){

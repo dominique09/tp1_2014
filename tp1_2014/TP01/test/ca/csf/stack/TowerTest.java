@@ -13,7 +13,7 @@ public class TowerTest {
 	public void setUp() throws Exception {
 		tower = new Tower(new LinkedListStack());
 	}
-	
+
 	@Test
 	public void whenTowerCreated_thenTowerIsEmpty() {
 		assertEquals(0,tower.getSize());

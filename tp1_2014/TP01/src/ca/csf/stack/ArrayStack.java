@@ -3,55 +3,59 @@ package ca.csf.stack;
 public class ArrayStack implements Stack {
 	private int size;
 	private Object[] objects;
-	
-	public ArrayStack(){
+
+	public ArrayStack() {
 		this.size = 0;
 	}
 
-	public ArrayStack(Stack stack){
-		
+	public ArrayStack(Stack stack) {
+
 	}
-	
-	public Object pop(){
-		Object object = objects[size];
-		this.size--;
-		
-		return object;
+
+	public Object pop() {
+		if (this.size > 0) {
+			Object object = objects[size];
+			this.size -= 1;
+
+			return object;
+		} else {
+			return null;
+		}
 	}
-	
-	public void push(Object object){
-		this.size++;
-		this.objects[size] = object;
+
+	public void push(Object object) {
+		this.size += 1;
+		this.objects[this.size] = object;
 	}
-	
-	public Object peek(){
+
+	public Object peek() {
 		return new Object();
 	}
-	
-	public Object getAt(int position){
+
+	public Object getAt(int position) {
 		return new Object();
 	}
-	
-	public void clear(){
-		
+
+	public void clear() {
+
 	}
-	
-	public boolean isEmpty(){
+
+	public boolean isEmpty() {
 		boolean isEmpty = false;
-		
-		if(this.size == 0){
+
+		if (this.size == 0) {
 			isEmpty = true;
 		}
-		
+
 		return isEmpty;
 	}
-	
-	public int getSize(){
+
+	public int getSize() {
 		return 0;
 	}
-	
-	public String toString(){
+
+	public String toString() {
 		return "";
 	}
-	
+
 }

@@ -5,7 +5,7 @@ public class Tower {
 	public Tower(LinkedListStack linkedListStack) {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public void addDisk(Disk disk){
 		
 	}

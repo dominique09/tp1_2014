@@ -1,7 +1,7 @@
 package ca.csf.stack;
 
 public class Tower {
-
+	private Disk[] disks;
 	public Tower(LinkedListStack linkedListStack) {
 		// TODO Auto-generated constructor stub
 	}

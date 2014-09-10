@@ -13,7 +13,7 @@ public class ArrayStack implements Stack {
 	}
 
 	public Object pop() {
-		if (this.size > 0) {
+		if (!this.isEmpty()) {
 			Object object = objects[size];
 			this.size -= 1;
 
@@ -29,11 +29,19 @@ public class ArrayStack implements Stack {
 	}
 
 	public Object peek() {
-		return new Object();
+		if (!this.isEmpty()){
+			return this.objects[this.size];
+		} else {
+			return null;
+		}
 	}
 
 	public Object getAt(int position) {
-		return new Object();
+		if(!this.isEmpty() && position <= this.size){
+			return this.objects[position];
+		} else {
+			return null;
+		}
 	}
 
 	public void clear() {

@@ -5,8 +5,8 @@ public class ArrayStack implements Stack {
 	private Object[] objects;
 
 	public ArrayStack(int initialSize) {
-		size = initialSize;
-		objects = 
+		size = 0;
+		objects = new Object[initialSize];
 	}
 
 	public Object pop() {
@@ -21,12 +21,22 @@ public class ArrayStack implements Stack {
 	}
 
 	public void push(Object object) {
-		
+		if(size < objects.length){
+			objects[size] = object;
+			size++;
+		} else {
+			Object[] tmpObjects = objects.clone();
+			objects = new Object[objects.length * 2];
+			for(int i = 0; i < tmpObjects.length; ++i){
+				objects[i] = tmpObjects[i];
+			}
+			objects[size++] = object;
+		}
 	}
 
 	public Object peek() {
 		if (!isEmpty()){
-			return objects[size];
+			return objects[size-1];
 		} else {
 			return null;
 		}

@@ -9,7 +9,7 @@ public class ArrayStack implements Stack {
 	}
 
 	public ArrayStack(Stack stack) {
-
+//Ceci est un commentaire bidon
 	}
 
 	public Object pop() {

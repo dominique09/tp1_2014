@@ -4,18 +4,15 @@ public class ArrayStack implements Stack {
 	private int size;
 	private Object[] objects;
 
-	public ArrayStack() {
-		this.size = 0;
-	}
-
-	public ArrayStack(Stack stack) {
-
+	public ArrayStack(int initialSize) {
+		size = initialSize;
+		objects = 
 	}
 
 	public Object pop() {
-		if (!this.isEmpty()) {
+		if (!isEmpty()) {
+			size--;
 			Object object = objects[size];
-			this.size -= 1;
 
 			return object;
 		} else {
@@ -24,42 +21,39 @@ public class ArrayStack implements Stack {
 	}
 
 	public void push(Object object) {
-		this.size += 1;
-		this.objects[this.size] = object;
+		
 	}
 
 	public Object peek() {
-		if (!this.isEmpty()){
-			return this.objects[this.size];
+		if (!isEmpty()){
+			return objects[size];
 		} else {
 			return null;
 		}
 	}
 
 	public Object getAt(int position) {
-		if(!this.isEmpty() && position <= this.size){
-			return this.objects[position];
+		if(!isEmpty() && position <= size){
+			return objects[position];
 		} else {
 			return null;
 		}
 	}
 
 	public void clear() {
-
+		size = 0;
 	}
 
 	public boolean isEmpty() {
-		boolean isEmpty = false;
-
-		if (this.size == 0) {
-			isEmpty = true;
+		if (size == 0) {
+			return true;
+		} else {
+			return false;
 		}
-
-		return isEmpty;
 	}
 
 	public int getSize() {
-		return 0;
+		return size;
 	}
 
 	public String toString() {

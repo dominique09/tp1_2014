@@ -12,7 +12,7 @@ public class ArrayStackTest {
 
 	@Before
 	public void setUp() throws Exception {
-		stack = new ArrayStack();
+		stack = new ArrayStack(10);
 	}
 	
 	@Test
@@ -56,6 +56,25 @@ public class ArrayStackTest {
 		
 		assertSame(object2, returnedObject);
 		assertNotSame(object1, returnedObject);
+	}
+	
+	@Test
+	public void whenStackNeedsToResize_thenStackIsCorrectlyResized() {
+		stack = new ArrayStack(2);
+		Object object1 = new Object();
+		Object object2 = new Object();
+		Object object3 = new Object();
+		Object object4 = new Object();
+		
+		stack.push(object1);
+		stack.push(object2);
+		stack.push(object3);
+		stack.push(object4);
+		
+		assertSame(object4, stack.pop());
+		assertSame(object3, stack.pop());
+		assertSame(object2, stack.pop());
+		assertSame(object1, stack.pop());
 	}
 	
 	@Test

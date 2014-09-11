@@ -2,39 +2,34 @@ package ca.csf.stack;
 
 public class Tower {
 	
-	private Disk[] disks;
+	Stack disks;
 	
-	public Tower(LinkedListStack linkedListStack) {
-		// TODO Auto-generated constructor stub
+	public Tower(Stack stack) {
+		disks = new LinkedListStack();
 	}
 
 	public void addDisk(Disk disk){
-		
+		disks.push(disk);
 	}
 
 	public Disk removeDisk() {
-		// TODO Auto-generated method stub
-		return null;
+		return (Disk)disks.pop();
 	}
 
-	public Object getDiskOnTop() {
-		// TODO Auto-generated method stub
-		return null;
+	public Disk getDiskOnTop() {
+		return (Disk)disks.peek();
 	}
 
-	public Disk getDiskAt(int i) {
-		// TODO Auto-generated method stub
-		return null;
+	public Disk getDiskAt(int position) {
+		return (Disk)disks.getAt(position);
 	}
 
-	public Object getSize() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getSize() {
+		return disks.getSize();
 	}
 
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		disks.clear();
 	}
 	
 }

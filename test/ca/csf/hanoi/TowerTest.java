@@ -1,9 +1,13 @@
-package ca.csf.stack;
+package ca.csf.hanoi;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import ca.csf.stack.LinkedListStack;
+import ca.csf.hanoi.Disk;
+import ca.csf.hanoi.Tower;
 
 public class TowerTest {
 

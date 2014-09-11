@@ -1,4 +1,7 @@
-package ca.csf.stack;
+package ca.csf.hanoi;
+
+import ca.csf.stack.LinkedListStack;
+import ca.csf.stack.Stack;
 
 public class Tower {
 	

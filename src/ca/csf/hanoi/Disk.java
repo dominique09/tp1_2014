@@ -1,4 +1,4 @@
-package ca.csf.stack;
+package ca.csf.hanoi;
 
 public class Disk {
 

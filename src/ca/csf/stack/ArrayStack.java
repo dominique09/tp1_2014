@@ -11,9 +11,12 @@ public class ArrayStack implements Stack {
 
 	public Object pop() {
 		if (!isEmpty()) {
+			Object object = objects[0];
+			
+			for(int i = 0; i < size; ++i){
+				objects[i] = objects[i+1];
+			}
 			size--;
-			Object object = objects[size];
-
 			return object;
 		} else {
 			return null;
@@ -21,10 +24,7 @@ public class ArrayStack implements Stack {
 	}
 
 	public void push(Object object) {
-		if(size < objects.length){
-			objects[size] = object;
-			size++;
-		} else {
+		if(size >= objects.length){
 			Object[] tmpObjects = objects.clone();
 			objects = new Object[objects.length * 2];
 			for(int i = 0; i < tmpObjects.length; ++i){
@@ -32,11 +32,17 @@ public class ArrayStack implements Stack {
 			}
 			objects[size++] = object;
 		}
+		
+		for(int i = size; i > 0; --i){
+			objects[i] = objects[i-1];
+		}
+		objects[0] = object;
+		size++;
 	}
 
 	public Object peek() {
 		if (!isEmpty()){
-			return objects[size-1];
+			return objects[0];
 		} else {
 			return null;
 		}
@@ -51,7 +57,9 @@ public class ArrayStack implements Stack {
 	}
 
 	public void clear() {
-		size = 0;
+		for(int i = size; i > 0; --i){
+			pop();
+		}
 	}
 
 	public boolean isEmpty() {

@@ -8,8 +8,16 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.collections.*?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.csf.hanoi.MainApplicationController">
+	<center>
+		<StackPane>
+			<ImageView fx:id="towersImage">
+			</ImageView>
+		</StackPane>
+	</center>
 	<bottom>
 		<HBox fx:id="bottom">
 			<Label text="Nombre de disques :" />
@@ -22,6 +30,9 @@
 						<Integer fx:value="6" />
 					</FXCollections>
 				</items>
+				<value>
+        			<Integer fx:value="3" />
+    			</value>
 			</ComboBox>
 			<Button fx:id="newGameButton" onAction="#startNewGame" Text="Nouvelle partie"/>
 		</HBox>

@@ -8,7 +8,7 @@ public class Disk {
 	}
 
 	public int getSize() {
-//		return size;
+		return size;
 	}
 
 }

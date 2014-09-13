@@ -9,7 +9,7 @@ public class GameController {
 	
 	public GameController() {
 		try {
-			hanoiTowers = new HanoiTowers(3);
+			hanoiTowers = new HanoiTowers();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

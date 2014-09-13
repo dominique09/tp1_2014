@@ -9,24 +9,15 @@ public class HanoiTowers {
 		towers = new Tower[3];
 	}
 	
-	public void newGame (int numberOfDisks) { // Begins a new game
+	public void newGame (int numberOfDisks) throws Exception { // Begins a new game
 		nbrOfDisks = numberOfDisks;
 		heldDisk = null;
+		if (numberOfDisks < 1) throw new Exception("Number of disks needs to be greater than 0");
 		for (int i = numberOfDisks; i > 0; i--){
 			towers[0].addDisk(new Disk(i));
 		}
 	}
-	
-	public boolean canAcceptNewGame (int numberOfDisks){
-		if (numberOfDisks > 0){ // This ensures that the requested amount of disks for a game is always a positive number.
-			return true;
-		}
-		else {
-			return false;
-		}
-		
-	}
-	
+
 	public void pickUpDisk (int towerPosition){
 		heldDisk = towers[towerPosition-1].getDiskOnTop();
 		towers[towerPosition-1].removeDisk();
@@ -48,7 +39,7 @@ public class HanoiTowers {
 	}
 	
 	public boolean canDrop (int towerPosition){
-		if (heldDisk != null && heldDisk.size < towers[towerPosition-1].getDiskOnTop().size){ // Currently holding a disk. Held disk is smaller than the disk on top of target tower.
+		if (heldDisk != null && heldDisk.getSize() < towers[towerPosition-1].getDiskOnTop().getSize()){ // Currently holding a disk. Held disk is smaller than the disk on top of target tower.
 			return true;
 		}
 		else {

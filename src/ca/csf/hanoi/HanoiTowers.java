@@ -7,7 +7,7 @@ public class HanoiTowers {
 	
 	public HanoiTowers (int numberOfDisks) throws Exception { // When first created, uses the default 3-disk configuration.
 		
-		if (numberOfDisks > 0) throw new Exception("Number of disks needs to be at least 1");
+		if (numberOfDisks < 1) throw new Exception("Number of disks needs to be at least 1");
 		towers = new Tower[3];
 		nbDisks = numberOfDisks;
 		

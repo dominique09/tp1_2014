@@ -8,6 +8,10 @@ public class GameController {
 	private HanoiTowers hanoiTowers;
 	
 	public GameController() {
-		hanoiTowers = new HanoiTowers();
+		try {
+			hanoiTowers = new HanoiTowers(3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

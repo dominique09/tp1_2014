@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.*?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.csf.hanoi.MenuController">
+	<center>
+		
+		<GridPane fx:id="menuGridPane" hgap="25" vgap="25">
+			<ImageView fx:id="towersImage" GridPane.columnIndex="0" GridPane.rowIndex="0">
+				<image>
+					<Image url="@assets/Hanoi.jpg" />
+				</image>
+			</ImageView>
+			<Label text="Nombre de disques" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+			<ComboBox GridPane.columnIndex="1" GridPane.rowIndex="1"></ComboBox>
+			<Button fx:id="startNewGameButton"
+					text="Commencer"
+					GridPane.columnIndex="0"
+					GridPane.rowIndex="2"
+					GridPane.rowSpan="2"/>
+		</GridPane>
+	</center>
+</BorderPane>
+

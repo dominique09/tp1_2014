@@ -35,8 +35,8 @@ public class MenuController {
 			gameStage.show();
 			
 			//Close the menu window
-			Stage currentStage = (Stage) root.getScene().getWindow();
-			currentStage.close();
+			/*Stage currentStage = (Stage) root.getScene().getWindow();
+			currentStage.close();*/
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

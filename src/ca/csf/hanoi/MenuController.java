@@ -12,4 +12,5 @@ public class MenuController {
 	@FXML public void startNewGame() {
 	}
 
+
 }

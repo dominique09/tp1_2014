@@ -3,7 +3,7 @@ package ca.csf.hanoi;
 public class HanoiTowers {
 	public Tower[] towers; // The three towers used in the game. Towers are listed from left to right.
 	private int nbrOfDisks; // The number of disks set for this game.
-	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower)
+	public Disk heldDisk; // A reference to the disk that is currently being held. (Used when picking up a disk from a tower)
 	
 	public HanoiTowers () { // When first created, uses the default 3-disk configuration.
 		towers = new Tower[3];
@@ -28,9 +28,14 @@ public class HanoiTowers {
 		
 	}
 	
-	public void pickUpDisk (int towerPosition){
-		heldDisk = towers[towerPosition-1].getDiskOnTop();
-		towers[towerPosition-1].removeDisk();
+	public boolean switchDisk (int initialTower, int finalTower){
+		if (towers[initialTower-1].getDiskOnTop().)
+		heldDisk = towers[initialTower-1].getDiskOnTop();
+		towers[initialTower-1].removeDisk();
+		
+		
+		
+		return true;
 	}
 	
 	

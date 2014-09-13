@@ -5,9 +5,9 @@ public class HanoiTowers {
 	private int nbrOfDisks; // The number of disks set for this game.
 	public Disk heldDisk; // A reference to the disk that is currently being held. (Used when picking up a disk from a tower)
 	
-	public HanoiTowers () { // When first created, uses the default 3-disk configuration.
+	public HanoiTowers (int numberOfDisks) { // When first created, uses the default 3-disk configuration.
 		towers = new Tower[3];
-		newGame(3);
+		newGame(numberOfDisks);
 	}
 	
 	public void newGame (int numberOfDisks) { // Begins a new game

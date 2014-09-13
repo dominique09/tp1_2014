@@ -10,6 +10,7 @@ public class GameController {
 	public GameController() {
 		try {
 			hanoiTowers = new HanoiTowers();
+			hanoiTowers.newGame(3); //TODO Don't hardcode like that.
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,9 +1,7 @@
-package ca.csf.hanoi.application;
+package ca.csf.hanoi;
 
 import com.sun.javafx.geom.Rectangle;
 
-import ca.csf.hanoi.Disk;
-import ca.csf.hanoi.Tower;
 import ca.csf.stack.LinkedListStack;
 
 public class GameController {

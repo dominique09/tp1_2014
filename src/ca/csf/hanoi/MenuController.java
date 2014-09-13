@@ -1,4 +1,4 @@
-package ca.csf.hanoi.application;
+package ca.csf.hanoi;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

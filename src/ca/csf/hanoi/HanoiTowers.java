@@ -28,14 +28,13 @@ public class HanoiTowers {
 		
 	}
 	
-	public boolean switchDisk (int initialTower, int finalTower){
-		if (towers[initialTower-1].getDiskOnTop().)
-		heldDisk = towers[initialTower-1].getDiskOnTop();
-		towers[initialTower-1].removeDisk();
-		
-		
-		
-		return true;
+	public boolean switchDisk (int initialTower, int finalTower) {
+		if (towers[initialTower-1].getDiskOnTop().getSize() > towers[finalTower].getDiskOnTop().getSize()){
+			towers[finalTower].addDisk(towers[initialTower].getDiskOnTop());
+			towers[initialTower].removeDisk();
+			return true;
+		}
+		return false;
 	}
 	
 	

@@ -6,14 +6,16 @@ public class HanoiTowers {
 	public Tower[] towers;
 	// The three towers used in the game. Towers are listed from left to right.
 	private int nbrOfDisks; // The number of disks set for this game.
-	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower)
+	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower
+	private final static int NBR_OF_TOWERS = 3; // If for whatever reason some hipster would want to play this game with a different amount of towers.
 	
 	public HanoiTowers () { // When first created, uses the default 3-disk configuration.
 	}
 	
 	public void newGame (int numberOfDisks) throws Exception { // Begins a new game
-		for (Tower tower : towers) {
-			tower = new Tower(new LinkedListStack());
+		towers = new Tower[NBR_OF_TOWERS];
+		for (int i = 0; i < NBR_OF_TOWERS; i++) {
+			towers[i] = new Tower(new LinkedListStack());
 		}
 		nbrOfDisks = numberOfDisks;
 		heldDisk = null;

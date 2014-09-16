@@ -6,10 +6,10 @@ public class HanoiTowers {
 	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower)
 	
 	public HanoiTowers () { // When first created, uses the default 3-disk configuration.
-		towers = new Tower[3];
 	}
 	
 	public void newGame (int numberOfDisks) throws Exception { // Begins a new game
+		towers = new Tower[3];
 		nbrOfDisks = numberOfDisks;
 		heldDisk = null;
 		if (numberOfDisks < 1) throw new Exception("Number of disks needs to be greater than 0");

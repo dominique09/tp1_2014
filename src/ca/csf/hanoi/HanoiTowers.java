@@ -19,8 +19,7 @@ public class HanoiTowers {
 		heldDisk = null;
 		if (numberOfDisks < 1) throw new Exception("Number of disks needs to be greater than 0");
 		for (int i = numberOfDisks; i > 0; i--){
-			Disk d1  = new Disk(1);
-			towers[0].addDisk(d1);
+			towers[0].addDisk(new Disk(i));
 		}
 	}
 

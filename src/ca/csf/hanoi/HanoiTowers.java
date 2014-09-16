@@ -1,7 +1,10 @@
 package ca.csf.hanoi;
 
+import ca.csf.stack.LinkedListStack;
+
 public class HanoiTowers {
-	public Tower[] towers; // The three towers used in the game. Towers are listed from left to right.
+	public Tower[] towers;
+	// The three towers used in the game. Towers are listed from left to right.
 	private int nbrOfDisks; // The number of disks set for this game.
 	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower)
 	
@@ -9,7 +12,9 @@ public class HanoiTowers {
 	}
 	
 	public void newGame (int numberOfDisks) throws Exception { // Begins a new game
-		towers = new Tower[3];
+		for (Tower tower : towers) {
+			tower = new Tower(new LinkedListStack());
+		}
 		nbrOfDisks = numberOfDisks;
 		heldDisk = null;
 		if (numberOfDisks < 1) throw new Exception("Number of disks needs to be greater than 0");

@@ -20,7 +20,7 @@ public class GameController {
 			hanoiTowersGame.newGame(3); //TODO Don't hardcode like that.
 			for (Tower tower : hanoiTowersGame.towers) { // Pour chaque tour
 				for (int i = 0; i < tower.getSize(); i++){ // ... et pour chaque disque
-					Rectangle rectangle = new Rectangle(24,24, 30, 30);
+					Rectangle rectangle = new Rectangle(24,24);
 					rectangle.setFill(Color.PINK);
 					mainGridPane.add(rectangle, 0, 1);
 				}

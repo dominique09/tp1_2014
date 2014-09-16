@@ -22,7 +22,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTowers_whenPickingUpSingleDisk_heldDiskSizeIsOne() {
 		try {
-			hanoiTowers.newGame(1);
+			hanoiTowers.newGame(3);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

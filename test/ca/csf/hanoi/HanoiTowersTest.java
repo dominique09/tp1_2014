@@ -81,5 +81,64 @@ public class HanoiTowersTest {
 		
 	}
 	
+	@Test
+	public void forHanoiTowers_whenTryingToPickUpFromEmptyTower_canPickUpReturnsFalse() {
+		try {
+			hanoiTowers.newGame(3);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		assertFalse(hanoiTowers.canPickUp(3));
+		assertFalse(hanoiTowers.canPickUp(2));
+		
+	}
+	
+	@Test
+	public void forHanoiTowers_afterPickingUpADisk_canPickUpReturnsFalse() {
+		try {
+			hanoiTowers.newGame(3);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		hanoiTowers.pickUpDisk(1);
+		
+		assertFalse(hanoiTowers.canPickUp(1));
+		
+	}
+	
+	@Test
+	public void forHanoiTowers_whenTryingToDropADiskOnTopOfASmallerOne_canDropReturnsFalse() {
+		try {
+			hanoiTowers.newGame(3);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		hanoiTowers.pickUpDisk(1);
+		hanoiTowers.dropDisk(3);
+		hanoiTowers.pickUpDisk(1);
+		
+		assertFalse(hanoiTowers.canDrop(3));
+	}
+	
+	@Test
+	public void forHanoiTowers_whenNotHoldingDisk_canDropReturnsFalse() {
+		try {
+			hanoiTowers.newGame(3);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		assertFalse(hanoiTowers.canDrop(1));
+		assertFalse(hanoiTowers.canDrop(2));
+		assertFalse(hanoiTowers.canDrop(3));
+	}
+	
 
 }

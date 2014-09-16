@@ -8,7 +8,7 @@ public class Tower {
 	Stack disks;
 	
 	public Tower(Stack stack) {
-		disks = new LinkedListStack();
+		disks = stack;
 	}
 
 	public void addDisk(Disk disk){

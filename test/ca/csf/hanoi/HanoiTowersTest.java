@@ -28,7 +28,7 @@ public class HanoiTowersTest {
 			e.printStackTrace();
 		}
 		
-		hanoiTowers.pickUpDisk(1);
+		// hanoiTowers.pickUpDisk(1);
 		
 	}
 	

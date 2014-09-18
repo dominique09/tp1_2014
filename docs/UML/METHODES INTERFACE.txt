@@ -1,0 +1,19 @@
+Voici les méthodes Nécéssaire pour l'interface et leurs utilisation:
+
+- updateButtonActivation() : Un void qui met set le "active" des buttons true ou false pour montrer quel actions peuvent être faites dans le jeu.
+			Pour chaque tour, il apelle canDrop() et canPickUp(). Si un canDrop retourne vrai, le button drop de la tour est activé, s'il retourne false
+			il est désactivé. Même principe pour les boutons pick up et canPickUp.
+			Cela permet de représenter graphiquement les coups permits dans le jeu et d'empêcher le joueur de faire des coups interdits.
+			
+- updateDiskInterface() : un void qui met a jour l'apparance des disques dans l'interface et leurs position. Cette méthode devrait être appelé à chaque fois
+			qu'une action de jeu est éffectue (donc, a la fin des fonctions pickUp et drop de l'interface, et de la fonction newGame). Il vérifie, pour chaque
+			tour, la taille de chaque disque (probablement avec une boucle FOR qui utilise la TAILLE d'une tour et getDiskAt(i).getSize()) et les initialises
+			dans l'interface. Cette fonction appelera ensuite upDateButtonActivation().
+			
+- pickUp(int position) : Un void appelé lorsqu'un bouton pick up est cliqué. Il apelle simplement la fonction pickUpDisk() de hanoitowers, puis lance 
+		updateDiskInterface().
+		
+- drop(int position) : Même principe que la fonction pickUp, mais qui apelle dropDisk() de hanoiTowers à la place de pickUpDisk().
+
+
+- beginNewGame(int disk) : Lance une nouvelle partie, donc appelle newGame() de HanoiTowers, puis apelle updateDiskInterface().

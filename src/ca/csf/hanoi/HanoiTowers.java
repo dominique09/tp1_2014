@@ -7,7 +7,7 @@ public class HanoiTowers {
 	// The three towers used in the game. Towers are listed from left to right.
 	private int nbrOfDisks; // The number of disks set for this game.
 	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower
-	private final static int NBR_OF_TOWERS = 3; // If for whatever reason some hipster would want to play this game with a different amount of towers.
+	private final static int NBR_OF_TOWERS = 3;
 	
 	public HanoiTowers () { // When first created, uses the default 3-disk configuration.
 	}
@@ -31,7 +31,7 @@ public class HanoiTowers {
 	}
 	
 	public boolean canPickUp (int towerPosition){
-		if (heldDisk == null && towers[towerPosition-1].disks.isEmpty()){ // Not currently holding a disk, selected tower has disks.
+		if (heldDisk == null && towers[towerPosition-1].getSize() > 0){ // Not currently holding a disk, selected tower has disks.
 			return true;
 		}
 		else{

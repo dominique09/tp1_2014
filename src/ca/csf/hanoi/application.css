@@ -1,7 +1,6 @@
 @CHARSET "UTF-8";
 
 *{
-	-fx-font-family: "Comic Sans MS";
 }
 #menuGridPane {
 	-fx-padding: 50;
@@ -9,4 +8,12 @@
 
 #menuGridPane * {
 	-fx-font-size: 16;
+}
+
+#leftVBox>Rectangle, #centerVBox>Rectangle, #rightVBox>Rectangle {
+	-fx-arc-width:10;
+	-fx-arc-height:10;
+	-fx-stroke: black;
+	-fx-stroke-type: inside;
+	-fx-background-color: red;
 }

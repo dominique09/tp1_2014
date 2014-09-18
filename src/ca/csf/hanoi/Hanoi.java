@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class Hanoi extends Application {
 
-	public static final String TITLE = "Hanoi - 1360025 - XXXXXXXX - XXXXXXX";
+	public static final String TITLE = "Hanoi - 1360025 - 1140776 - XXXXXXX";
 	@Override
 	public void start(Stage primaryStage) {
 		try { // Starts the JavaFX application 

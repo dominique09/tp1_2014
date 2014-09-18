@@ -52,18 +52,17 @@ public class GameController {
 			towerVBoxes[1] = centerVBox;
 			towerVBoxes[2] = rightVBox;
 			
+			updateRectangles();
+			updateButtons();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		for (int i = 0; i < hanoiTowersGame.towers[0].getSize(); i++){ // ... et pour chaque disque
-			Rectangle rectangle = new Rectangle(hanoiTowersGame.towers[0].getDiskAt(i).getSize()*DISK_WIDTH_MULTIPLIER,DISK_HEIGHT);
-			leftVBox.getChildren().add(rectangle);
-		}
+		
 	}
 	
 	@FXML
 	private void updateRectangles() {
-		
 		for (int i = 0; i < towerVBoxes.length; ++i){ // For each VBox ...
 			towerVBoxes[i].getChildren().clear();
 			for (int j=0; j < hanoiTowersGame.towers[i].getSize(); ++j){ // For each disk
@@ -74,7 +73,10 @@ public class GameController {
 	}
 	
 	private void updateButtons() {
-		
+		for (int i = 1; i <= towerVBoxes.length; ++i) {
+			pickupButtons[i].setDisable(!hanoiTowersGame.canPickUp(i));
+			dropButtons[i].setDisable(!hanoiTowersGame.canDrop(i));
+		}
 	}
 	
 	private enum rectangleColors{
@@ -88,6 +90,7 @@ public class GameController {
 		int towerNumber = Integer.parseInt(sender.getId().substring(sender.getId().length()-1));
 		hanoiTowersGame.dropDisk(towerNumber);
 		updateRectangles();
+		updateButtons();
 	}
 
 	@FXML public void pickUp(ActionEvent event) {
@@ -97,5 +100,6 @@ public class GameController {
 		int towerNumber = Integer.parseInt(sender.getId().substring(sender.getId().length()-1));
 		hanoiTowersGame.pickUpDisk(towerNumber);
 		updateRectangles();
+		updateButtons();
 	}
 }

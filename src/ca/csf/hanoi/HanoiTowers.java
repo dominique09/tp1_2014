@@ -9,9 +9,6 @@ public class HanoiTowers {
 	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower
 	private final static int NBR_OF_TOWERS = 3;
 	
-	public HanoiTowers () { // When first created, uses the default 3-disk configuration.
-	}
-	
 	public void newGame (int numberOfDisks) throws Exception { // Begins a new game
 		towers = new Tower[NBR_OF_TOWERS];
 		for (int i = 0; i < NBR_OF_TOWERS; i++) {
@@ -31,13 +28,7 @@ public class HanoiTowers {
 	}
 	
 	public boolean canPickUp (int towerPosition){
-		if (heldDisk == null && towers[towerPosition-1].getSize() > 0){ // Not currently holding a disk, selected tower has disks.
-			return true;
-		}
-		else{
-			return false;
-		}
-		
+		return (heldDisk == null && towers[towerPosition-1].getSize() > 0) // Not currently holding a disk, selected tower has disks.
 	}
 	
 	public void dropDisk (int towerPosition){
@@ -46,21 +37,11 @@ public class HanoiTowers {
 	}
 	
 	public boolean canDrop (int towerPosition){
-		if (heldDisk != null && heldDisk.getSize() < towers[towerPosition-1].getDiskOnTop().getSize()){ // Currently holding a disk. Held disk is smaller than the disk on top of target tower.
-			return true;
-		}
-		else {
-			return false;
-		}
+		return (heldDisk != null && heldDisk.getSize() < towers[towerPosition-1].getDiskOnTop().getSize()); // Currently holding a disk. Held disk is smaller than the disk on top of target tower.
 	}
 	
 	public boolean isFinished () { // "Did we win?"
-		if (towers[2].getSize() == nbrOfDisks){ // If the right tower has all the disks in the game.
-			return true;
-		}
-		else {
-			return false;
-		}
+		return (towers[2].getSize() == nbrOfDisks); // If the right tower has all the disks in the game.
 	}
 	
 	public Tower getTower(int position){

@@ -63,19 +63,19 @@ public class GameController {
 	
 	@FXML
 	private void updateRectangles() {
-		for (int i = 0; i < towerVBoxes.length; ++i){ // For each VBox ...
-			towerVBoxes[i].getChildren().clear();
-			for (int j=0; j < hanoiTowersGame.towers[i].getSize(); ++j){ // For each disk
-				Rectangle rectangle = new Rectangle(hanoiTowersGame.towers[i].getDiskAt(j).getSize()*DISK_WIDTH_MULTIPLIER,DISK_HEIGHT);
-				towerVBoxes[i].getChildren().add(rectangle);
+		for (int i = 1; i <= towerVBoxes.length; ++i){ // For each VBox ...
+			towerVBoxes[i-1].getChildren().clear();
+			for (int j=1; j <= hanoiTowersGame.getTower(i).getSize(); ++j){ // For each disk
+				Rectangle rectangle = new Rectangle(hanoiTowersGame.getTower(i).getDiskAt(j-1).getSize()*DISK_WIDTH_MULTIPLIER,DISK_HEIGHT);
+				towerVBoxes[i-1].getChildren().add(rectangle);
 			}
 		}
 	}
 	
 	private void updateButtons() {
-		for (int i = 0; i < towerVBoxes.length; ++i) {
-			pickupButtons[i].setDisable(!hanoiTowersGame.canPickUp(i+1));
-			dropButtons[i].setDisable(!hanoiTowersGame.canDrop(i));
+		for (int i = 1; i <= towerVBoxes.length; ++i) {
+			pickupButtons[i-1].setDisable(!hanoiTowersGame.canPickUp(i));
+			dropButtons[i-1].setDisable(!hanoiTowersGame.canDrop(i));
 		}
 	}
 	

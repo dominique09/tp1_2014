@@ -24,7 +24,7 @@ public class HanoiTowers {
 			towers[0].addDisk(new Disk(i));
 		}
 	}
-
+ 
 	public void pickUpDisk (int towerPosition){
 		heldDisk = towers[towerPosition-1].getDiskOnTop();
 		towers[towerPosition-1].removeDisk();

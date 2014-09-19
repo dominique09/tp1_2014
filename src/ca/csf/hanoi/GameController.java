@@ -73,8 +73,8 @@ public class GameController {
 	}
 	
 	private void updateButtons() {
-		for (int i = 1; i <= towerVBoxes.length; ++i) {
-			pickupButtons[i].setDisable(!hanoiTowersGame.canPickUp(i));
+		for (int i = 0; i < towerVBoxes.length; ++i) {
+			pickupButtons[i].setDisable(!hanoiTowersGame.canPickUp(i+1));
 			dropButtons[i].setDisable(!hanoiTowersGame.canDrop(i));
 		}
 	}

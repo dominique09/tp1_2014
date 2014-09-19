@@ -3,7 +3,7 @@ package ca.csf.hanoi;
 import ca.csf.stack.LinkedListStack;
 
 public class HanoiTowers {
-	public Tower[] towers;
+	private Tower[] towers;
 	// The three towers used in the game. Towers are listed from left to right.
 	private int nbrOfDisks; // The number of disks set for this game.
 	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower
@@ -61,6 +61,10 @@ public class HanoiTowers {
 		else {
 			return false;
 		}
+	}
+	
+	public Tower getTower(int position){
+		return towers[position-1];
 	}
 	
 }

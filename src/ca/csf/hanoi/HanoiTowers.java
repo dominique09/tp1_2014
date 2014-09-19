@@ -23,9 +23,13 @@ public class HanoiTowers {
 		return true;
 	}
  
-	public void pickUpDisk (int towerPosition){
+	public boolean pickUpDisk (int towerPosition){
+		if (!canPickUp(towerPosition)) return false;
+		
 		heldDisk = towers[towerPosition-1].getDiskOnTop();
 		towers[towerPosition-1].removeDisk();
+		
+		return true;
 	}
 	
 	public boolean canPickUp (int towerPosition){
@@ -41,7 +45,7 @@ public class HanoiTowers {
 	}
 	
 	public boolean canDrop (int towerPosition){
-		return (heldDisk != null && heldDisk.getSize() < towers[towerPosition-1].getDiskOnTop().getSize()); // Currently holding a disk. Held disk is smaller than the disk on top of target tower.
+		return (heldDisk != null && (towers[towerPosition-1].getSize() == 0 || heldDisk.getSize() < towers[towerPosition-1].getDiskOnTop().getSize())); // Currently holding a disk. Held disk is smaller than the disk on top of target tower.
 	}
 	
 	public boolean isFinished () { // "Did we win?"

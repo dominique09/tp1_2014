@@ -15,38 +15,62 @@ public class HanoiTowersTest {
 	}
 
 	@Test
-	public void forHanoiTowers_whenTryingNewGameWithZeroDisks_cantAcceptNewGame() {
+	public void forHanoiTower_whenStartNewGameWithZeroDisk_thenReturnFalse(){
 		assertFalse(hanoiTowers.newGame(0));
 	}
 	
 	@Test
-	public void forHanoiTowers_whenPickingUpSingleDisk_heldDiskSizeIsOne() {
-		hanoiTowers.newGame(3);
-			
-		hanoiTowers.pickUpDisk(1);
-		
-		assertTrue(hanoiTowers.heldDisk.getSize() == 1);
+	public void forHanoiTower_whenStartNewGameWithTwoDisks_thenReturnFalse(){
+		assertFalse(hanoiTowers.newGame(2));
 	}
 	
 	@Test
-	public void forHanoiTowers_whenPickingUpSingleDiskDroppingItElsewhereThenPickingUpSecondDisk_heldDiskSizeIsTwo() {
-		hanoiTowers.newGame(3);		
+	public void forHanoiTower_whenStartNewGameWithThreeDisks_thenReturnTrue(){
+		assertTrue(hanoiTowers.newGame(3));
+	}
+	
+	@Test
+	public void forHanoiTower_whenStartNewGameWithSixDisks_thenReturnTrue(){
+		assertTrue(hanoiTowers.newGame(6));
+	}
+	
+	@Test
+	public void forHanoiTower_whenStartNewGameWithSevenDisks_thenReturnFalse(){
+		assertFalse(hanoiTowers.newGame(7));
+	}
+	
+	@Test
+	public void forHanoiTower_whenPickUpDiskOneTime_thenReturnTrue(){
+		hanoiTowers.newGame(3);
+		assertTrue(hanoiTowers.pickUpDisk(1));
+	}
+	
+	@Test
+	public void forHanoiTower_whenPickUpDiskTwoTimes_thenReturnFalse(){
+		hanoiTowers.newGame(3);
 		hanoiTowers.pickUpDisk(1);
-		hanoiTowers.dropDisk(3);		
+		assertFalse(hanoiTowers.pickUpDisk(1));
+	}
+	
+	@Test
+	public void forHanoiTowers_whenPickingUpSingleDisk_thenHeldDiskSizeIsOne() {
+		hanoiTowers.newGame(3);
+		hanoiTowers.pickUpDisk(1);	
+		assertEquals(hanoiTowers.heldDisk.getSize(), 1);
+	}
+	
+	@Test
+	public void forHanoiTower_whenPickUpDiskDropDiskPickupDiskSecondTime_thenHeldDiskSizeIsTwo(){
+		hanoiTowers.newGame(4);
 		hanoiTowers.pickUpDisk(1);
-		
-		assertTrue(hanoiTowers.heldDisk.getSize() == 2);
+		hanoiTowers.dropDisk(3);
+		assertEquals(hanoiTowers.pickUpDisk(1), 2);
 	}
 	
 	@Test
 	public void forHanoiTowers_whenDoingClassicThreeDiskGameAndSolvingIt_isFinishedReturnsTrue() {
-		try {
-			hanoiTowers.newGame(3);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		hanoiTowers.newGame(3);
+
 		hanoiTowers.pickUpDisk(1);// 123 0 0 (Memory aid for positions)
 		hanoiTowers.dropDisk(3); // 23 0 1
 		hanoiTowers.pickUpDisk(1);
@@ -62,18 +86,18 @@ public class HanoiTowersTest {
 		hanoiTowers.pickUpDisk(1);
 		hanoiTowers.dropDisk(3); // 0 0 123
 		
-		assertTrue(hanoiTowers.isFinished());
-		
+		assertTrue(hanoiTowers.isFinished());	
+	}
+	
+	@Test
+	public void forHanoiTower_whenGameStart_isFinishedReturnFalse(){
+		hanoiTowers.newGame(5);
+		assertFalse(hanoiTowers.isFinished());
 	}
 	
 	@Test
 	public void forHanoiTowers_whenTryingToPickUpFromEmptyTower_canPickUpReturnsFalse() {
-		try {
-			hanoiTowers.newGame(3);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		hanoiTowers.newGame(3);
 		
 		assertFalse(hanoiTowers.canPickUp(3));
 		assertFalse(hanoiTowers.canPickUp(2));

@@ -28,7 +28,7 @@ public class HanoiTowers {
 	}
 	
 	public boolean canPickUp (int towerPosition){
-		return (heldDisk == null && towers[towerPosition-1].getSize() > 0) // Not currently holding a disk, selected tower has disks.
+		return (heldDisk == null && towers[towerPosition-1].getSize() > 0); // Not currently holding a disk, selected tower has disks.
 	}
 	
 	public void dropDisk (int towerPosition){

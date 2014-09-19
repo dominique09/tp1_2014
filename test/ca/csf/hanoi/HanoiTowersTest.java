@@ -16,41 +16,26 @@ public class HanoiTowersTest {
 
 	@Test
 	public void forHanoiTowers_whenTryingNewGameWithZeroDisks_cantAcceptNewGame() {
-		// I have no idea
+		assertFalse(hanoiTowers.newGame(0));
 	}
 	
 	@Test
 	public void forHanoiTowers_whenPickingUpSingleDisk_heldDiskSizeIsOne() {
-		try {
-			hanoiTowers.newGame(3);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		hanoiTowers.newGame(3);
+			
 		hanoiTowers.pickUpDisk(1);
 		
 		assertTrue(hanoiTowers.heldDisk.getSize() == 1);
-		
 	}
 	
 	@Test
 	public void forHanoiTowers_whenPickingUpSingleDiskDroppingItElsewhereThenPickingUpSecondDisk_heldDiskSizeIsTwo() {
-		try {
-			hanoiTowers.newGame(3);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		hanoiTowers.newGame(3);		
 		hanoiTowers.pickUpDisk(1);
-		
-		hanoiTowers.dropDisk(3);
-		
+		hanoiTowers.dropDisk(3);		
 		hanoiTowers.pickUpDisk(1);
 		
 		assertTrue(hanoiTowers.heldDisk.getSize() == 2);
-		
 	}
 	
 	@Test

@@ -9,17 +9,18 @@ public class HanoiTowers {
 	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower
 	private final static int NBR_OF_TOWERS = 3;
 	
-	public void newGame (int numberOfDisks) throws Exception { // Begins a new game
+	public boolean newGame (int numberOfDisks) { // Begins a new game
+		if (numberOfDisks < 1) return false;
 		towers = new Tower[NBR_OF_TOWERS];
 		for (int i = 0; i < NBR_OF_TOWERS; i++) {
 			towers[i] = new Tower(new LinkedListStack());
 		}
 		nbrOfDisks = numberOfDisks;
 		heldDisk = null;
-		if (numberOfDisks < 1) throw new Exception("Number of disks needs to be greater than 0");
 		for (int i = numberOfDisks; i > 0; i--){
 			towers[0].addDisk(new Disk(i));
 		}
+		return true;
 	}
  
 	public void pickUpDisk (int towerPosition){
@@ -31,9 +32,12 @@ public class HanoiTowers {
 		return (heldDisk == null && towers[towerPosition-1].getSize() > 0); // Not currently holding a disk, selected tower has disks.
 	}
 	
-	public void dropDisk (int towerPosition){
+	public boolean dropDisk (int towerPosition){
+		if (!canDrop(towerPosition)) return false;
+		
 		towers[towerPosition-1].addDisk(heldDisk); // Adds a disk to the tower, player is no longer holding a disk.
 		heldDisk = null;
+		return true;
 	}
 	
 	public boolean canDrop (int towerPosition){

@@ -65,12 +65,12 @@ public class GameController {
 				element = "000000"; // Reset all colors to black
 			}
 			// Hex codes for disks' colors
-			rectangleColors[0] = "caaaaa";
-			rectangleColors[1] = "a88888";
-			rectangleColors[2] = "966666";
-			rectangleColors[3] = "644444";
-			rectangleColors[4] = "422222";
-			rectangleColors[5] = "200000";
+			rectangleColors[0] = "aaaaaa";
+			rectangleColors[1] = "888888";
+			rectangleColors[2] = "666666";
+			rectangleColors[3] = "444444";
+			rectangleColors[4] = "222222";
+			rectangleColors[5] = "000000";
 			
 			updateRectangles();
 			updateButtons();

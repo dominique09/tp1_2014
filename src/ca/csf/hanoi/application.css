@@ -11,9 +11,7 @@
 }
 
 #leftVBox>Rectangle, #centerVBox>Rectangle, #rightVBox>Rectangle {
-	-fx-arc-width:10;
-	-fx-arc-height:10;
-	-fx-stroke: black;
-	-fx-stroke-type: inside;
-	-fx-background-color: red;
+	-fx-arc-width:5;
+	-fx-arc-height:5;
+	-fx-color: red;
 }

@@ -8,6 +8,7 @@ public class HanoiTowers {
 	private int nbrOfDisks; // The number of disks set for this game.
 	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower
 	private final static int NBR_OF_TOWERS = 3;
+	public final static int MAX_NBR_OF_DISKS = 6;
 	
 	public boolean newGame (int numberOfDisks) { // Begins a new game
 		if (numberOfDisks < 1) return false;

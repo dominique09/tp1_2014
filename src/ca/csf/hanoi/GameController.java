@@ -1,5 +1,8 @@
 package ca.csf.hanoi;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,9 +19,13 @@ public class GameController {
 	private static final int TOWERS_ROW = 1;
 	private static final int DISK_WIDTH_MULTIPLIER = 30;
 	
+	private static int nbOfDisks = 5;
+	
 	private Button[] pickupButtons;
 	private Button[] dropButtons;
 	private VBox[] towerVBoxes;
+	
+	private String[] rectangleColors;
 	
 	@FXML VBox leftVBox;
 	@FXML VBox centerVBox;
@@ -35,7 +42,7 @@ public class GameController {
 	public void initialize() {
 		try {
 			hanoiTowersGame = new HanoiTowers();
-			hanoiTowersGame.newGame(3);
+			hanoiTowersGame.newGame(nbOfDisks);
 			
 			pickupButtons = new Button[3];
 			pickupButtons[0] = pickup1;
@@ -52,8 +59,23 @@ public class GameController {
 			towerVBoxes[1] = centerVBox;
 			towerVBoxes[2] = rightVBox;
 			
+			rectangleColors = new String[6];
+			
+			for (String element : rectangleColors){
+				element = "000000"; // Reset all colors to black
+			}
+			// Hex codes for disks' colors
+			rectangleColors[0] = "caaaaa";
+			rectangleColors[1] = "a88888";
+			rectangleColors[2] = "966666";
+			rectangleColors[3] = "644444";
+			rectangleColors[4] = "422222";
+			rectangleColors[5] = "200000";
+			
 			updateRectangles();
 			updateButtons();
+			
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,7 +88,8 @@ public class GameController {
 		for (int i = 1; i <= towerVBoxes.length; ++i){ // For each VBox ...
 			towerVBoxes[i-1].getChildren().clear();
 			for (int j=1; j <= hanoiTowersGame.getTower(i).getSize(); ++j){ // For each disk
-				Rectangle rectangle = new Rectangle(hanoiTowersGame.getTower(i).getDiskAt(j-1).getSize()*DISK_WIDTH_MULTIPLIER,DISK_HEIGHT);
+				int diskSize = hanoiTowersGame.getTower(i).getDiskAt(j-1).getSize();
+				Rectangle rectangle = new Rectangle(diskSize*DISK_WIDTH_MULTIPLIER, DISK_HEIGHT, Color.web(rectangleColors[diskSize-1]));
 				towerVBoxes[i-1].getChildren().add(rectangle);
 			}
 		}
@@ -78,10 +101,6 @@ public class GameController {
 			dropButtons[i-1].setDisable(!hanoiTowersGame.canDrop(i));
 		}
 	}
-	
-	private enum rectangleColors{
-		COLOR1, COLOR2, COLOR3, COLOR4, COLOR5, COLOR6
-	}
 
 	@FXML public void drop(ActionEvent event) {
 		Button sender = (Button)event.getSource();
@@ -91,7 +110,18 @@ public class GameController {
 		hanoiTowersGame.dropDisk(towerNumber);
 		updateRectangles();
 		updateButtons();
+		checkIfFinished();
 	}
+
+	private void checkIfFinished() {
+		if (hanoiTowersGame.isFinished()){
+			mainGridPane.getChildren().clear();
+			
+		}
+		
+	}
+	
+
 
 	@FXML public void pickUp(ActionEvent event) {
 		Button sender = (Button)event.getSource();

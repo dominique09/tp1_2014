@@ -6,13 +6,14 @@ public class HanoiTowers {
 	private Tower[] towers;
 	// The three towers used in the game. Towers are listed from left to right.
 	private int nbrOfDisks; // The number of disks set for this game.
-	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower
+	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower)
 	private final static int NBR_OF_TOWERS = 3;
+	public final static int MIN_NBR_OF_DISKS = 3;
 	public final static int MAX_NBR_OF_DISKS = 6;
 	
 	public void newGame (int numberOfDisks) throws Exception { // Begins a new game
 		if (numberOfDisks < 1) throw new Exception("Number of disks needs to be positive");
-		else if (numberOfDisks > MAX_NBR_OF_DISKS) throw new Exception("Number of disks is too high");
+		else if (numberOfDisks > MAX_NBR_OF_DISKS && numberOfDisks < MIN_NBR_OF_DISKS) throw new Exception("Number of disks is not respected");
 		towers = new Tower[NBR_OF_TOWERS];
 		for (int i = 0; i < NBR_OF_TOWERS; i++) {
 			towers[i] = new Tower(new LinkedListStack());

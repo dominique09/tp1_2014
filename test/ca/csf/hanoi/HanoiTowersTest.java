@@ -15,61 +15,116 @@ public class HanoiTowersTest {
 	}
 
 	@Test
-	public void forHanoiTower_whenStartNewGameWithZeroDisk_thenReturnFalse(){
-		assertFalse(hanoiTowers.newGame(0));
+	public void forHanoiTower_whenStartNewGameWithZeroDisk_thenCatchException(){
+		try {
+			hanoiTowers.newGame(0);
+			assert false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			assert true;
+		}
 	}
 	
 	@Test
-	public void forHanoiTower_whenStartNewGameWithTwoDisks_thenReturnFalse(){
-		assertFalse(hanoiTowers.newGame(2));
+	public void forHanoiTower_whenStartNewGameWithTwoDisks_thenCatchException(){
+		try {
+			hanoiTowers.newGame(2);
+			assert false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			assert true;
+		}
 	}
 	
 	@Test
-	public void forHanoiTower_whenStartNewGameWithThreeDisks_thenReturnTrue(){
-		assertTrue(hanoiTowers.newGame(3));
+	public void forHanoiTower_whenStartNewGameWithThreeDisks_thenNoException(){
+		try {
+			hanoiTowers.newGame(3);
+			assert true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			assert false;
+		}
 	}
 	
 	@Test
 	public void forHanoiTower_whenStartNewGameWithSixDisks_thenReturnTrue(){
-		assertTrue(hanoiTowers.newGame(6));
+		try {
+			hanoiTowers.newGame(6);
+			assert true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			assert false;
+		}
 	}
 	
 	@Test
 	public void forHanoiTower_whenStartNewGameWithSevenDisks_thenReturnFalse(){
-		assertFalse(hanoiTowers.newGame(7));
+		try {
+			hanoiTowers.newGame(7);
+			assert false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			assert true;
+		}
 	}
 	
 	@Test
 	public void forHanoiTower_whenPickUpDiskOneTime_thenReturnTrue(){
-		hanoiTowers.newGame(3);
+		try {
+			hanoiTowers.newGame(3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		assertTrue(hanoiTowers.pickUpDisk(1));
 	}
 	
 	@Test
 	public void forHanoiTower_whenPickUpDiskTwoTimes_thenReturnFalse(){
-		hanoiTowers.newGame(3);
+		try {
+			hanoiTowers.newGame(3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		hanoiTowers.pickUpDisk(1);
 		assertFalse(hanoiTowers.pickUpDisk(1));
 	}
 	
 	@Test
 	public void forHanoiTowers_whenPickingUpSingleDisk_thenHeldDiskSizeIsOne() {
-		hanoiTowers.newGame(3);
+		try {
+			hanoiTowers.newGame(3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		hanoiTowers.pickUpDisk(1);	
-		assertEquals(hanoiTowers.heldDisk.getSize(), 1);
+		assertEquals(1, hanoiTowers.heldDisk.getSize());
 	}
 	
 	@Test
 	public void forHanoiTower_whenPickUpDiskDropDiskPickupDiskSecondTime_thenHeldDiskSizeIsTwo(){
-		hanoiTowers.newGame(4);
+		try {
+			hanoiTowers.newGame(4);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		hanoiTowers.pickUpDisk(1);
 		hanoiTowers.dropDisk(3);
-		assertEquals(hanoiTowers.pickUpDisk(1), 2);
+		hanoiTowers.pickUpDisk(1);
+		assertEquals(2, hanoiTowers.heldDisk.getSize());
 	}
 	
 	@Test
 	public void forHanoiTowers_whenDoingClassicThreeDiskGameAndSolvingIt_isFinishedReturnsTrue() {
-		hanoiTowers.newGame(3);
+		try {
+			hanoiTowers.newGame(3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		hanoiTowers.pickUpDisk(1);// 123 0 0 (Memory aid for positions)
 		hanoiTowers.dropDisk(3); // 23 0 1
@@ -91,13 +146,21 @@ public class HanoiTowersTest {
 	
 	@Test
 	public void forHanoiTower_whenGameStart_isFinishedReturnFalse(){
-		hanoiTowers.newGame(5);
+		try {
+			hanoiTowers.newGame(5);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		assertFalse(hanoiTowers.isFinished());
 	}
 	
 	@Test
 	public void forHanoiTowers_whenTryingToPickUpFromEmptyTower_canPickUpReturnsFalse() {
-		hanoiTowers.newGame(3);
+		try {
+			hanoiTowers.newGame(3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		assertFalse(hanoiTowers.canPickUp(3));
 		assertFalse(hanoiTowers.canPickUp(2));
@@ -109,7 +172,6 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(3);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -124,7 +186,6 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(3);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -140,7 +201,6 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(3);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

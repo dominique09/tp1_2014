@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.Button?>
@@ -16,24 +20,33 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.image.Image?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.csf.hanoi.MenuController">
-	<center>
-		
-		<GridPane fx:id="menuGridPane" hgap="25" vgap="25">
-			<ImageView fx:id="towersImage" GridPane.columnIndex="0" GridPane.rowIndex="0">
-				<image>
-					<Image url="@assets/Hanoi.jpg" />
-				</image>
-			</ImageView>
-			<Label text="Nombre de disques" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-			<ComboBox fx:id="nbDisksComboBox" GridPane.columnIndex="1" GridPane.rowIndex="1"></ComboBox>
-			<Button fx:id="startNewGameButton"
-					text="Commencer"
-					onAction="#startNewGame"
-					GridPane.columnIndex="0"
-					GridPane.rowIndex="2"
-					GridPane.rowSpan="2"/>
-		</GridPane>
-	</center>
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="250.0" prefWidth="340.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="ca.csf.hanoi.MenuController">
+   <center>
+      <VBox alignment="CENTER" prefHeight="270.0" prefWidth="337.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/Hanoi.png" />
+               </image>
+            </ImageView>
+      			<Label text="Nombre de disques" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+               <children>
+                  <RadioButton fx:id="3disksRadio" mnemonicParsing="false" selected="true" text="3">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="nbDisksGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="4disksRadio" mnemonicParsing="false" text="4" toggleGroup="$nbDisksGroup" />
+                  <RadioButton fx:id="5disksRadio" mnemonicParsing="false" text="5" toggleGroup="$nbDisksGroup" />
+                  <RadioButton fx:id="6disksRadio" mnemonicParsing="false" text="6" toggleGroup="$nbDisksGroup" />
+               </children>
+            </HBox>
+      			<Button fx:id="startNewGameButton" onAction="#startNewGame" text="Commencer" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </center>
 </BorderPane>
-

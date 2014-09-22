@@ -8,32 +8,40 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.scene.control.ToggleGroup;
 
 public class MenuController {
 
 	@FXML Parent root;
 	@FXML Button newGameButton;
 	@FXML HBox bottom;
-	@FXML ComboBox<Integer> nbDisksComboBox;
 	@FXML ImageView towersImage;
 	@FXML GridPane menuGridPane;
 	@FXML Button startNewGameButton;
+	@FXML ToggleGroup nbDisksGroup;
 	
 	@FXML public void startNewGame() {
 		try {
+			
 			Stage gameStage = new Stage();
-			GridPane root = (GridPane)FXMLLoader.load((getClass().getResource("Game.fxml")));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
+			GridPane root = (GridPane)loader.load();
 			Scene scene = new Scene(root, 800,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			gameStage.setTitle(Hanoi.TITLE);
 			gameStage.setScene(scene);
 			gameStage.setResizable(false);
-			gameStage.show();
 			
+			RadioButton selectedRadioButton = (RadioButton)nbDisksGroup.getSelectedToggle();
+			GameController gameController = loader.<GameController>getController();
+			gameController.nbOfDisks = Character.getNumericValue(selectedRadioButton.getId().charAt(0));
+			
+			gameStage.show();
 			//Close the menu window
 			/*Stage currentStage = (Stage) root.getScene().getWindow();
 			currentStage.close();*/
@@ -42,8 +50,6 @@ public class MenuController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	}
 
 }

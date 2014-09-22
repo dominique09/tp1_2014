@@ -10,8 +10,9 @@ public class HanoiTowers {
 	private final static int NBR_OF_TOWERS = 3;
 	public final static int MAX_NBR_OF_DISKS = 6;
 	
-	public boolean newGame (int numberOfDisks) { // Begins a new game
-		if (numberOfDisks < 1) return false;
+	public void newGame (int numberOfDisks) throws Exception { // Begins a new game
+		if (numberOfDisks < 1) throw new Exception("Number of disks needs to be positive");
+		else if (numberOfDisks > MAX_NBR_OF_DISKS) throw new Exception("Number of disks is too high");
 		towers = new Tower[NBR_OF_TOWERS];
 		for (int i = 0; i < NBR_OF_TOWERS; i++) {
 			towers[i] = new Tower(new LinkedListStack());
@@ -21,7 +22,6 @@ public class HanoiTowers {
 		for (int i = numberOfDisks; i > 0; i--){
 			towers[0].addDisk(new Disk(i));
 		}
-		return true;
 	}
  
 	public boolean pickUpDisk (int towerPosition){

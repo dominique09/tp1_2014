@@ -19,7 +19,7 @@ public class GameController {
 	private static final int TOWERS_ROW = 1;
 	private static final int DISK_WIDTH_MULTIPLIER = 30;
 	
-	private static int nbOfDisks = 5;
+	public int nbOfDisks = 3;
 	
 	private Button[] pickupButtons;
 	private Button[] dropButtons;
@@ -83,6 +83,10 @@ public class GameController {
 		
 	}
 	
+	public void setNumberOfDisks(int nbDisks){
+		nbOfDisks = nbDisks;
+	}
+	
 	@FXML
 	private void updateRectangles() {
 		for (int i = 1; i <= towerVBoxes.length; ++i){ // For each VBox ...
@@ -116,12 +120,8 @@ public class GameController {
 	private void checkIfFinished() {
 		if (hanoiTowersGame.isFinished()){
 			mainGridPane.getChildren().clear();
-			
 		}
-		
 	}
-	
-
 
 	@FXML public void pickUp(ActionEvent event) {
 		Button sender = (Button)event.getSource();

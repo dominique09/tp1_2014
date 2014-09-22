@@ -101,7 +101,7 @@ public class HanoiTowersTest {
 		}
 		
 		hanoiTowers.pickUpDisk(1);	
-		assertEquals(1, hanoiTowers.heldDisk.getSize());
+		assertEquals(1, hanoiTowers.getHeldDisk().getSize());
 	}
 	
 	@Test
@@ -115,7 +115,7 @@ public class HanoiTowersTest {
 		hanoiTowers.pickUpDisk(1);
 		hanoiTowers.dropDisk(3);
 		hanoiTowers.pickUpDisk(1);
-		assertEquals(2, hanoiTowers.heldDisk.getSize());
+		assertEquals(2, hanoiTowers.getHeldDisk().getSize());
 	}
 	
 	@Test

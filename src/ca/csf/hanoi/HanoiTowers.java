@@ -6,7 +6,7 @@ public class HanoiTowers {
 	private Tower[] towers;
 	// The three towers used in the game. Towers are listed from left to right.
 	private int nbrOfDisks; // The number of disks set for this game.
-	public Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower)
+	private Disk heldDisk; // The disk that is currently being held. (Used when picking up a disk from a tower)
 	private final static int NBR_OF_TOWERS = 3;
 	public final static int MIN_NBR_OF_DISKS = 3;
 	public final static int MAX_NBR_OF_DISKS = 6;
@@ -56,6 +56,10 @@ public class HanoiTowers {
 	
 	public Tower getTower(int position){
 		return towers[position-1];
+	}
+	
+	public Disk getHeldDisk(){
+		return heldDisk;
 	}
 	
 }

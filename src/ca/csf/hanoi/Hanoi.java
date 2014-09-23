@@ -16,7 +16,7 @@ public class Hanoi extends Application {
 
 			Boolean useArrayStack = Boolean.valueOf((this.getParameters().getNamed().get("useArrayStack")));
 			
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
 			BorderPane root = (BorderPane)loader.load();
 			((MenuController)loader.getController()).setArrayStack(useArrayStack);
 			Scene scene = new Scene(root, 400, 400);

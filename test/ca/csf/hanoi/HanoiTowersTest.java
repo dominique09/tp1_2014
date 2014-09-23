@@ -20,7 +20,6 @@ public class HanoiTowersTest {
 			hanoiTowers.newGame(0);
 			assert false;
 		} catch (Exception e) {
-			e.printStackTrace();
 			assert true;
 		}
 	}
@@ -31,7 +30,6 @@ public class HanoiTowersTest {
 			hanoiTowers.newGame(2);
 			assert false;
 		} catch (Exception e) {
-			e.printStackTrace();
 			assert true;
 		}
 	}
@@ -42,7 +40,6 @@ public class HanoiTowersTest {
 			hanoiTowers.newGame(3);
 			assert true;
 		} catch (Exception e) {
-			e.printStackTrace();
 			assert false;
 		}
 	}
@@ -53,7 +50,6 @@ public class HanoiTowersTest {
 			hanoiTowers.newGame(6);
 			assert true;
 		} catch (Exception e) {
-			e.printStackTrace();
 			assert false;
 		}
 	}
@@ -64,7 +60,6 @@ public class HanoiTowersTest {
 			hanoiTowers.newGame(7);
 			assert false;
 		} catch (Exception e) {
-			e.printStackTrace();
 			assert true;
 		}
 	}
@@ -74,7 +69,7 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(3);
 		} catch (Exception e) {
-			e.printStackTrace();
+			assert false;
 		}
 		
 		assertTrue(hanoiTowers.pickUpDisk(1));
@@ -85,7 +80,7 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(3);
 		} catch (Exception e) {
-			e.printStackTrace();
+			assert false;
 		}
 		
 		hanoiTowers.pickUpDisk(1);
@@ -97,7 +92,7 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(3);
 		} catch (Exception e) {
-			e.printStackTrace();
+			assert false;
 		}
 		
 		hanoiTowers.pickUpDisk(1);	
@@ -109,7 +104,7 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(4);
 		} catch (Exception e) {
-			e.printStackTrace();
+			assert false;
 		}
 		
 		hanoiTowers.pickUpDisk(1);
@@ -123,7 +118,7 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(3);
 		} catch (Exception e) {
-			e.printStackTrace();
+			assert false;
 		}
 
 		hanoiTowers.pickUpDisk(1);// 123 0 0 (Memory aid for positions)
@@ -149,7 +144,7 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(5);
 		} catch (Exception e) {
-			e.printStackTrace();
+			assert false;
 		}
 		assertFalse(hanoiTowers.isFinished());
 	}
@@ -159,7 +154,7 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(3);
 		} catch (Exception e) {
-			e.printStackTrace();
+			assert false;
 		}
 		
 		assertFalse(hanoiTowers.canPickUp(3));
@@ -172,7 +167,7 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(3);
 		} catch (Exception e) {
-			e.printStackTrace();
+			assert false;
 		}
 		
 		hanoiTowers.pickUpDisk(1);
@@ -186,7 +181,7 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(3);
 		} catch (Exception e) {
-			e.printStackTrace();
+			assert false;
 		}
 		
 		hanoiTowers.pickUpDisk(1);
@@ -201,7 +196,7 @@ public class HanoiTowersTest {
 		try {
 			hanoiTowers.newGame(3);
 		} catch (Exception e) {
-			e.printStackTrace();
+			assert false;
 		}
 		
 		assertFalse(hanoiTowers.canDrop(1));

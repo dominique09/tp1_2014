@@ -19,7 +19,7 @@ public class GameController {
 	private static final int TOWERS_ROW = 1;
 	private static final int DISK_WIDTH_MULTIPLIER = 30;
 	
-	public int nbOfDisks = 3;
+	public int nbOfDisks = 5;
 	
 	private Button[] pickupButtons;
 	private Button[] dropButtons;

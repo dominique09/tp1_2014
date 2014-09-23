@@ -15,7 +15,7 @@ public class GameController {
 	private static final int DISK_HEIGHT = 25;
 	private static final int DISK_WIDTH_MULTIPLIER = 30;
 	
-	public int nbOfDisks = 5;
+	public int nbOfDisks;
 	
 	private Button[] pickupButtons;
 	private Button[] dropButtons;
@@ -34,9 +34,10 @@ public class GameController {
 	@FXML Button pickup2;
 	@FXML Button pickup3;
 	
-	@FXML
-	public void initialize() {
+	
+	public void initialize(int nbDisks) {
 		try {
+			nbOfDisks = nbDisks;
 			hanoiTowersGame = new HanoiTowers();
 			hanoiTowersGame.newGame(nbOfDisks);
 			
@@ -77,10 +78,6 @@ public class GameController {
 			e.printStackTrace();
 		}
 		
-	}
-	
-	public void setNumberOfDisks(int nbDisks){
-		nbOfDisks = nbDisks;
 	}
 	
 	@FXML

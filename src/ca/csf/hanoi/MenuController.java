@@ -25,6 +25,8 @@ public class MenuController {
 	@FXML Button startNewGameButton;
 	@FXML ToggleGroup nbDisksGroup;
 	
+	private Boolean useArrayStack;
+	
 	@FXML public void startNewGame() {
 		try {
 			
@@ -38,18 +40,22 @@ public class MenuController {
 			gameStage.setResizable(false);
 			
 			RadioButton selectedRadioButton = (RadioButton)nbDisksGroup.getSelectedToggle();
-			GameController gameController = loader.<GameController>getController();
-			gameController.nbOfDisks = Character.getNumericValue(selectedRadioButton.getId().charAt(0));
+			GameController gameController = loader.getController();
+			gameController.initialize(Character.getNumericValue(selectedRadioButton.getId().charAt(0)));
 			
 			gameStage.show();
 			//Close the menu window
-			/*Stage currentStage = (Stage) root.getScene().getWindow();
-			currentStage.close();*/
+			//Stage currentStage = (Stage) root.getScene().getWindow();
+			//currentStage.close();
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void setArrayStack(Boolean useArrayStack){
+		this.useArrayStack = useArrayStack;
 	}
 
 }

@@ -8,12 +8,18 @@ import javafx.stage.Stage;
 
 public class Hanoi extends Application {
 
-	public static final String TITLE = "Hanoi - 1360025 - 1140776 - XXXXXXX";
+	public static final String TITLE = "Hanoi - 1360025 - 1140776 - 1335162";
+
 	@Override
 	public void start(Stage primaryStage) {
-		try { // Starts the JavaFX application 
-			BorderPane root = (BorderPane) FXMLLoader.load(getClass().getResource("Menu.fxml"));
-			Scene scene = new Scene(root, 400,400);
+		try { // Starts the JavaFX application
+
+			Boolean useArrayStack = Boolean.valueOf((this.getParameters().getNamed().get("useArrayStack")));
+			
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
+			BorderPane root = (BorderPane)loader.load();
+			((MenuController)loader.getController()).setArrayStack(useArrayStack);
+			Scene scene = new Scene(root, 400, 400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle(TITLE);
 			primaryStage.setResizable(false);
@@ -27,4 +33,5 @@ public class Hanoi extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+
 }

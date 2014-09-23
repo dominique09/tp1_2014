@@ -1,8 +1,5 @@
 package ca.csf.hanoi;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,7 +13,6 @@ public class GameController {
 	@FXML GridPane mainGridPane;
 	
 	private static final int DISK_HEIGHT = 25;
-	private static final int TOWERS_ROW = 1;
 	private static final int DISK_WIDTH_MULTIPLIER = 30;
 	
 	public int nbOfDisks = 5;

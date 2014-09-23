@@ -13,7 +13,7 @@ public class ArrayStack implements Stack {
 		if (!isEmpty()) {
 			Object object = objects[0];
 			
-			for(int i = 0; i < size; ++i){
+			for(int i = 0; i < size-1; ++i){
 				objects[i] = objects[i+1];
 			}
 			size--;
@@ -63,11 +63,7 @@ public class ArrayStack implements Stack {
 	}
 
 	public boolean isEmpty() {
-		if (size == 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return size == 0;
 	}
 
 	public int getSize() {

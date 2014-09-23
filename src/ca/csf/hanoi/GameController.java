@@ -3,10 +3,13 @@ package ca.csf.hanoi;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 public class GameController {
 	private HanoiTowers hanoiTowersGame;
@@ -15,13 +18,15 @@ public class GameController {
 	private static final int DISK_HEIGHT = 25;
 	private static final int DISK_WIDTH_MULTIPLIER = 30;
 	
-	public int nbOfDisks;
+	private int nbOfDisks;
 	
 	private Button[] pickupButtons;
 	private Button[] dropButtons;
 	private VBox[] towerVBoxes;
 	
 	private String[] rectangleColors;
+	
+	private Stage parentReference;
 	
 	@FXML VBox leftVBox;
 	@FXML VBox centerVBox;
@@ -35,11 +40,11 @@ public class GameController {
 	@FXML Button pickup3;
 	
 	
-	public void initialize(int nbDisks) {
+	public void initialize(int nbDisks, boolean useArrayStack) {
 		try {
 			nbOfDisks = nbDisks;
 			hanoiTowersGame = new HanoiTowers();
-			hanoiTowersGame.newGame(nbOfDisks);
+			hanoiTowersGame.newGame(nbOfDisks, useArrayStack);
 			
 			pickupButtons = new Button[3];
 			pickupButtons[0] = pickup1;
@@ -113,6 +118,10 @@ public class GameController {
 	private void checkIfFinished() {
 		if (hanoiTowersGame.isFinished()){
 			mainGridPane.getChildren().clear();
+			Label label = new Label("BRAVO T'AS GAGNÉ EL' GROS");
+			label.setFont(new Font(34));
+			mainGridPane.getChildren().add(label, 1,1);
+			parentReference.show();
 		}
 	}
 
@@ -124,5 +133,9 @@ public class GameController {
 		hanoiTowersGame.pickUpDisk(towerNumber);
 		updateRectangles();
 		updateButtons();
+	}
+	
+	public void setParent(Stage parentStage){
+		parentReference = parentStage;
 	}
 }

@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.image.Image?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="250.0" prefWidth="340.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="ca.csf.hanoi.MenuController">
+<BorderPane fx:id="menuBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="250.0" prefWidth="340.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="ca.csf.hanoi.MenuController">
    <center>
       <VBox alignment="CENTER" prefHeight="270.0" prefWidth="337.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>

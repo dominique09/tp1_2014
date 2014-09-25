@@ -17,7 +17,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTower_whenStartNewGameWithZeroDisk_thenCatchException(){
 		try {
-			hanoiTowers.newGame(0);
+			hanoiTowers.newGame(0, false);
 			assert false;
 		} catch (Exception e) {
 			assert true;
@@ -27,7 +27,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTower_whenStartNewGameWithTwoDisks_thenCatchException(){
 		try {
-			hanoiTowers.newGame(2);
+			hanoiTowers.newGame(2, false);
 			assert false;
 		} catch (Exception e) {
 			assert true;
@@ -37,7 +37,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTower_whenStartNewGameWithThreeDisks_thenNoException(){
 		try {
-			hanoiTowers.newGame(3);
+			hanoiTowers.newGame(3, false);
 			assert true;
 		} catch (Exception e) {
 			assert false;
@@ -47,7 +47,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTower_whenStartNewGameWithSixDisks_thenReturnTrue(){
 		try {
-			hanoiTowers.newGame(6);
+			hanoiTowers.newGame(6, false);
 			assert true;
 		} catch (Exception e) {
 			assert false;
@@ -57,7 +57,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTower_whenStartNewGameWithSevenDisks_thenReturnFalse(){
 		try {
-			hanoiTowers.newGame(7);
+			hanoiTowers.newGame(7, false);
 			assert false;
 		} catch (Exception e) {
 			assert true;
@@ -67,7 +67,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTower_whenPickUpDiskOneTime_thenReturnTrue(){
 		try {
-			hanoiTowers.newGame(3);
+			hanoiTowers.newGame(3, false);
 		} catch (Exception e) {
 			assert false;
 		}
@@ -78,7 +78,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTower_whenPickUpDiskTwoTimes_thenReturnFalse(){
 		try {
-			hanoiTowers.newGame(3);
+			hanoiTowers.newGame(3, false);
 		} catch (Exception e) {
 			assert false;
 		}
@@ -90,7 +90,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTowers_whenPickingUpSingleDisk_thenHeldDiskSizeIsOne() {
 		try {
-			hanoiTowers.newGame(3);
+			hanoiTowers.newGame(3, false);
 		} catch (Exception e) {
 			assert false;
 		}
@@ -102,7 +102,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTower_whenPickUpDiskDropDiskPickupDiskSecondTime_thenHeldDiskSizeIsTwo(){
 		try {
-			hanoiTowers.newGame(4);
+			hanoiTowers.newGame(4, false);
 		} catch (Exception e) {
 			assert false;
 		}
@@ -116,7 +116,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTowers_whenDoingClassicThreeDiskGameAndSolvingIt_isFinishedReturnsTrue() {
 		try {
-			hanoiTowers.newGame(3);
+			hanoiTowers.newGame(3, false);
 		} catch (Exception e) {
 			assert false;
 		}
@@ -142,7 +142,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTower_whenGameStart_isFinishedReturnFalse(){
 		try {
-			hanoiTowers.newGame(5);
+			hanoiTowers.newGame(5, false);
 		} catch (Exception e) {
 			assert false;
 		}
@@ -152,7 +152,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTowers_whenTryingToPickUpFromEmptyTower_canPickUpReturnsFalse() {
 		try {
-			hanoiTowers.newGame(3);
+			hanoiTowers.newGame(3, false);
 		} catch (Exception e) {
 			assert false;
 		}
@@ -165,7 +165,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTowers_afterPickingUpADisk_canPickUpReturnsFalse() {
 		try {
-			hanoiTowers.newGame(3);
+			hanoiTowers.newGame(3, false);
 		} catch (Exception e) {
 			assert false;
 		}
@@ -179,7 +179,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTowers_whenTryingToDropADiskOnTopOfASmallerOne_canDropReturnsFalse() {
 		try {
-			hanoiTowers.newGame(3);
+			hanoiTowers.newGame(3, false);
 		} catch (Exception e) {
 			assert false;
 		}
@@ -194,7 +194,7 @@ public class HanoiTowersTest {
 	@Test
 	public void forHanoiTowers_whenNotHoldingDisk_canDropReturnsFalse() {
 		try {
-			hanoiTowers.newGame(3);
+			hanoiTowers.newGame(3, false);
 		} catch (Exception e) {
 			assert false;
 		}
@@ -203,6 +203,5 @@ public class HanoiTowersTest {
 		assertFalse(hanoiTowers.canDrop(2));
 		assertFalse(hanoiTowers.canDrop(3));
 	}
-	
 
 }

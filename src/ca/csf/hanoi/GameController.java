@@ -2,14 +2,20 @@ package ca.csf.hanoi;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class GameController {
 	private HanoiTowers hanoiTowersGame;
@@ -26,7 +32,9 @@ public class GameController {
 	
 	private String[] rectangleColors;
 	
-	private Stage parentReference;
+	private MenuController parentReference;
+	
+	private Stage myStage;
 	
 	@FXML VBox leftVBox;
 	@FXML VBox centerVBox;
@@ -42,6 +50,8 @@ public class GameController {
 	
 	public void initialize(int nbDisks, boolean useArrayStack) {
 		try {
+			myStage = (Stage) mainGridPane.getScene().getWindow();
+			
 			nbOfDisks = nbDisks;
 			hanoiTowersGame = new HanoiTowers();
 			hanoiTowersGame.newGame(nbOfDisks, useArrayStack);
@@ -117,12 +127,24 @@ public class GameController {
 
 	private void checkIfFinished() {
 		if (hanoiTowersGame.isFinished()){
-			mainGridPane.getChildren().clear();
-			Label label = new Label("BRAVO T'AS GAGNÉ EL' GROS");
-			label.setFont(new Font(34));
-			mainGridPane.getChildren().add(label);
-			mainGridPane.autosize();
-			parentReference.show();
+			
+			try {
+				Stage stage = new Stage(StageStyle.UTILITY);
+				stage.initOwner(mainGridPane.getScene().getWindow());
+				stage.initModality(Modality.WINDOW_MODAL);
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EndGame.fxml"));
+				Parent parent = (Parent) fxmlLoader.load();
+				EndGameController endGameController = fxmlLoader.getController();
+				endGameController.setMessage("Vous avez gagné ! Voulez-vous rejouer une partie ?");
+				endGameController.setParentReference(this);
+				Scene scene = new Scene(parent,400,200);
+				stage.setScene(scene);
+				stage.showAndWait();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
 	}
 
@@ -135,8 +157,16 @@ public class GameController {
 		updateRectangles();
 		updateButtons();
 	}
+
+	public MenuController getParentReference() {
+		return parentReference;
+	}
+
+	public void setParentReference(MenuController parentReference) {
+		this.parentReference = parentReference;
+	}
 	
-	public void setParent(Stage parentStage){
-		parentReference = parentStage;
+	public void close(){
+		myStage.close();
 	}
 }

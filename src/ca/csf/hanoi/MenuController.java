@@ -24,11 +24,13 @@ public class MenuController {
 	@FXML BorderPane menuBorderPane;
 	@FXML Button startNewGameButton;
 	@FXML ToggleGroup nbDisksGroup;
+	private Stage myStage;
 	
 	private Boolean useArrayStack;
 	
 	@FXML public void startNewGame() {
 		try {
+			myStage = (Stage) menuBorderPane.getScene().getWindow();
 			
 			Stage gameStage = new Stage();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
@@ -41,12 +43,13 @@ public class MenuController {
 			
 			RadioButton selectedRadioButton = (RadioButton)nbDisksGroup.getSelectedToggle();
 			GameController gameController = loader.getController();
+			gameController.setParentReference(this);
 			gameController.initialize(Character.getNumericValue(selectedRadioButton.getId().charAt(0)), useArrayStack);
 			
 			gameStage.show();
-			//Close the menu window 
-			Stage currentStage = (Stage) menuBorderPane.getScene().getWindow();
-			currentStage.hide();
+			
+			//Hide the menu window 
+			myStage.hide();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -55,6 +58,14 @@ public class MenuController {
 	
 	public void setArrayStack(Boolean useArrayStack){
 		this.useArrayStack = useArrayStack;
+	}
+	
+	public void close() {
+		myStage.close();
+	}
+	
+	public Stage getStage(){
+		return myStage;
 	}
 
 }

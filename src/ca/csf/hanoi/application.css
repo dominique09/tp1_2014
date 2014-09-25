@@ -1,7 +1,6 @@
 @CHARSET "UTF-8";
 
 *{
-	-fx-font-family: "Comic Sans MS";
 }
 #menuGridPane {
 	-fx-padding: 50;

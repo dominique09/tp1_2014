@@ -20,33 +20,36 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.image.Image?>
 
-<BorderPane fx:id="menuBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="250.0" prefWidth="340.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="ca.csf.hanoi.MenuController">
-   <center>
-      <VBox alignment="CENTER" prefHeight="270.0" prefWidth="337.0" spacing="10.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="ca/csf/hanoi/res/Hanoi.png" />
-               </image>
-            </ImageView>
-      			<Label text="Nombre de disques" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
-               <children>
-                  <RadioButton fx:id="3disksRadio" mnemonicParsing="false" selected="true" text="3">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="nbDisksGroup" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="4disksRadio" mnemonicParsing="false" text="4" toggleGroup="$nbDisksGroup" />
-                  <RadioButton fx:id="5disksRadio" mnemonicParsing="false" text="5" toggleGroup="$nbDisksGroup" />
-                  <RadioButton fx:id="6disksRadio" mnemonicParsing="false" text="6" toggleGroup="$nbDisksGroup" />
-               </children>
-            </HBox>
-      			<Button fx:id="startNewGameButton" onAction="#startNewGame" text="Commencer" />
-         </children>
-         <padding>
-            <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </VBox>
-   </center>
+<BorderPane fx:id="menuBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="250.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.csf.hanoi.MenuController">
+	<top>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="ca/csf/hanoi/res/Hanoi.png" />
+         </image>
+      </ImageView>
+   </top>
+	<center>
+		<VBox alignment="CENTER" prefHeight="270.0" prefWidth="337.0" spacing="10.0" BorderPane.alignment="CENTER">
+			<children>
+
+			<Label text="Nombre de disques" />
+			<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+				<children>
+					<RadioButton fx:id="3disksRadio" mnemonicParsing="false" selected="true" text="3">
+						<toggleGroup>
+							<ToggleGroup fx:id="nbDisksGroup" />
+						</toggleGroup>
+					</RadioButton>
+					<RadioButton fx:id="4disksRadio" mnemonicParsing="false" text="4" toggleGroup="$nbDisksGroup" />
+					<RadioButton fx:id="5disksRadio" mnemonicParsing="false" text="5" toggleGroup="$nbDisksGroup" />
+					<RadioButton fx:id="6disksRadio" mnemonicParsing="false" text="6" toggleGroup="$nbDisksGroup" />
+				</children>
+			</HBox>
+			<Button fx:id="startNewGameButton" onAction="#startNewGame" text="Commencer" />
+		</children>
+			<padding>
+				<Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
+			</padding>
+		</VBox>
+	</center>
 </BorderPane>

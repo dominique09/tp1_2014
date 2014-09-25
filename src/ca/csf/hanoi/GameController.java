@@ -1,23 +1,22 @@
 package ca.csf.hanoi;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 
-public class GameController {
+public class GameController implements EventHandler<WindowEvent> {
 	private HanoiTowers hanoiTowersGame;
 	@FXML GridPane mainGridPane;
 	
@@ -51,6 +50,7 @@ public class GameController {
 	public void initialize(int nbDisks, boolean useArrayStack) {
 		try {
 			myStage = (Stage) mainGridPane.getScene().getWindow();
+			myStage.setOnCloseRequest(this);
 			
 			nbOfDisks = nbDisks;
 			hanoiTowersGame = new HanoiTowers();
@@ -169,4 +169,11 @@ public class GameController {
 	public void close(){
 		myStage.close();
 	}
+
+	@Override
+	public void handle(WindowEvent arg0) {
+		parentReference.close();
+	}
+	
+	
 }

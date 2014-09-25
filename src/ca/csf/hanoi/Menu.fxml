@@ -26,7 +26,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/Hanoi.png" />
+                  <Image url="ca/csf/hanoi/res/Hanoi.png" />
                </image>
             </ImageView>
       			<Label text="Nombre de disques" />

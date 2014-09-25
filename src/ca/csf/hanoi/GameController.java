@@ -120,7 +120,8 @@ public class GameController {
 			mainGridPane.getChildren().clear();
 			Label label = new Label("BRAVO T'AS GAGNÉ EL' GROS");
 			label.setFont(new Font(34));
-			mainGridPane.getChildren().add(label, 1,1);
+			mainGridPane.getChildren().add(label);
+			mainGridPane.autosize();
 			parentReference.show();
 		}
 	}
